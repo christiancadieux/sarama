@@ -194,7 +194,7 @@ func (b *Broker) Open(conf *Config) error {
 			}
 		}()
 		dialer := conf.getDialer()
-		b.conn, b.connErr = dialer.Dial("tcp", b.addr)
+		b.conn, b.connErr = dialer.Dial("tcp4", b.addr)
 		if b.connErr != nil {
 			Logger.Printf("Failed to connect to broker %s: %s\n", b.addr, b.connErr)
 			b.conn = nil
